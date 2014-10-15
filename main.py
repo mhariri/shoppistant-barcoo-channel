@@ -72,7 +72,7 @@ class MainHandler(webapp2.RequestHandler):
         draw = ImageDraw.Draw(img)
         w, _ = draw.textsize(rating)
         draw.text((25 - w / 2, 4), rating, (255, 255, 255), font=rating_font)
-        draw.text((18, 20), "of 5", (255, 255, 255), font=rating_footer_font)
+        draw.text((17, 20), "of 5", (255, 255, 255), font=rating_footer_font)
         self.response.content_type = "image/png"
         img.save(self.response, "PNG")
 
