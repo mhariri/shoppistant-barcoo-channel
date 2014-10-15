@@ -51,7 +51,7 @@ class MainHandler(webapp2.RequestHandler):
                 request = urllib2.Request(url, None, {'Referrer': 'http://shoppistant.com'})
                 response = urllib2.urlopen(request)
                 m = re.search("<span class=\"ratingCount\">(.*) aus", response.read())
-                if m:
+                if m and m.group(1) != "0,00":
                     self.send_rating_image(m.group(1))
                 else:
                     self.response.write("Not found")
