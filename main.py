@@ -65,6 +65,10 @@ class MainHandler(webapp2.RequestHandler):
             if e.code == 404:
                 self.response.write("Not found")
                 self.response.status = 404
+            elif e.code == 503:
+                logger.error(str(e))
+                self.response.write(str(e))
+                self.response.status = 404
             else:
                 raise e
 
