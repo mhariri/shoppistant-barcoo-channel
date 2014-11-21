@@ -3,6 +3,7 @@ import re
 import urllib2
 import datetime
 from PIL import Image, ImageDraw, ImageFont
+import logging
 
 import webapp2
 
@@ -66,7 +67,7 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write("Not found")
                 self.response.status = 404
             elif e.code == 503:
-                logger.error(str(e))
+                logging.error(str(e))
                 self.response.write(str(e))
                 self.response.status = 404
             else:
